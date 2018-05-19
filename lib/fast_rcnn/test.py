@@ -6,7 +6,11 @@
 # --------------------------------------------------------
 
 """Test a Fast R-CNN network on an imdb (image database)."""
-
+###-----------added by qsc--------###
+import sys
+caffe_root = '/aiml/***/py-R-FCN-master_1a2be8e/caffe-1a2be83/'
+sys.path.path.insert(0, caffe_root + 'python')
+###-------------------------------###
 from fast_rcnn.config import cfg, get_output_dir
 from fast_rcnn.bbox_transform import clip_boxes, bbox_transform_inv
 import argparse
@@ -18,6 +22,11 @@ from fast_rcnn.nms_wrapper import nms
 import cPickle
 from utils.blob import im_list_to_blob
 import os
+###------ added by qsc ------###
+import caffe.proto import caffe_pb2
+import google.protobuf as pb2
+import google.protobuf.text_format
+###--------------------------###
 
 def _get_image_blob(im):
     """Converts an image into a network input.
